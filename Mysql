@@ -1,0 +1,47 @@
+
+mysql -u root -p
+
+CREATE DATABASE db;
+CREATE USER 'word'@'localhost' IDENTIFIED BY 'Colpevole&65';
+GRANT ALL ON db.* TO 'word'@'localhost' IDENTIFIED BY 'Colpevole&65' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
+
+mysql -u word -p -f db < dump.sql
+
+scp word.tar.gz   root@185.156.42.162:/root
+
+sudo chown -R root:root /var/www/html/wordpress/
+sudo chmod -R 755 /var/www/html/wordpress/
+
+
+_____________________________
+
+mysqldump -u word -p Colpevole&65 | gzip > /path/to/outputfile.sql.gz
+
+mysql -u root -p
+
+mysqldump -uword -pColpevole&65 > /home/igor/dump.sql
+
+
+
+
+
+
+mysqldump -u - db > dump.sql
+mysqldump -u word -p Colpevole&65 db | gzip > /home/igor/dump.sql.gz
+mysqldump -u -p db > /home/igor/dump.sql
+
+
+
+
+ssh -i /home/igor/2/.vagrant/machines/word/virtualbox/private_key vagrant@192.168.0.105
+
+mysql -u word -p -f db < dump.sql
+
+
+SELECT table_schema "db", sum( data_length + index_length )/1024/1024 "database size in MB" FROM information_schema.TABLES GROUP BY table_schema;
+
+
+
+
